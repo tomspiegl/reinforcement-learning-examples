@@ -20,7 +20,7 @@ public class HumanAgent implements Agent {
     public int move(int[] currentState) {
         int i = -1;
         while (i == -1) {
-            System.out.print("\nYou: ");
+            System.out.print("\nYou (X): ");
             int v = scanner.nextInt() - 1;
             if (v < 0 || v > currentState.length -1 || currentState[v] != 0) {
                 System.out.print("Try again: ");

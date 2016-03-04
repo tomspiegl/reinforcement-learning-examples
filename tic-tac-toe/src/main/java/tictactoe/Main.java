@@ -17,7 +17,7 @@ public class Main {
 
     private static void train(Agent learningAgent) {
         GameController gameController = new GameController(true);
-        System.out.println("Playing training episodes");
+        System.out.print("\nTraining RLAgent ");
         Stats stats = new Stats();
         int learningGames = 50000;
         Players players = new Players(learningAgent, new RLAgent(2));
@@ -33,7 +33,7 @@ public class Main {
             players.rotate();
         }
         stats.log();
-        System.out.println("\nTraining done, you may start playing. You are player (X). Good luck!\n");
+        System.out.println("\nStart playing by entering a field number. You are player (X). Stop playing by ctrl-c. Good luck!\n");
     }
 
     private static void play(Agent learningAgent) {
@@ -68,7 +68,7 @@ public class Main {
         }
 
         private void log() {
-            System.out.printf("%nTraining done: games played:%d, draw:%d, A won:%d B won:%d%n", stats[0], stats[3], stats[1], stats[2]);
+            System.out.printf("%nTraining done, games played:%d, draw:%d, A won:%d B won:%d%n", stats[0], stats[3], stats[1], stats[2]);
         }
 
         long t = System.currentTimeMillis();
