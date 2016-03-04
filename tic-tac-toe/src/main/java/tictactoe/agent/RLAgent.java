@@ -46,7 +46,7 @@ public class RLAgent implements Agent {
         public void learn(double reward, int[] state) {
             int[] subsequentState = state;
 
-            while (states.size() > 1) {
+            while (states.size() > 0) {
                 int[] currentState = states.pop();
                 int currentAction = actions.pop();
 
