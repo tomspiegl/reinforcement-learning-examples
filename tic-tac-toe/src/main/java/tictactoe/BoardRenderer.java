@@ -20,7 +20,8 @@ public abstract class BoardRenderer {
         }
     }
 
-    public void renderDraw(int[] board) {
+    public void renderDraw(int[] state) {
+        print(state);
         System.out.println("--- Draw ---");
     }
 
