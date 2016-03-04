@@ -89,6 +89,17 @@ public class RLAgent implements Agent {
 
     }
 
+    private int[] getAvailableActions(int[] state) {
+        int[] moves = new int[state.length];
+        int length = 0;
+        for (int i = 0; i < state.length; i++) {
+            if (state[i] == 0) {
+                moves[length++] = i;
+            }
+        }
+        return Arrays.copyOf(moves, length);
+    }
+
     static class QValues {
 
         private Map<String, Double> qValues;
@@ -111,7 +122,6 @@ public class RLAgent implements Agent {
             String actionId = getQKey(state, action);
             qValues.put(actionId, value);
         }
-
         private String getQKey(int[] state, int action) {
             StringBuilder buf = new StringBuilder(state.length + 1);
             for (int b : state) {
@@ -120,17 +130,7 @@ public class RLAgent implements Agent {
             buf.append(action);
             return buf.toString();
         }
-    }
 
-    public static int[] getAvailableActions(int[] state) {
-        int[] moves = new int[state.length];
-        int length = 0;
-        for (int i = 0; i < state.length; i++) {
-            if (state[i] == 0) {
-                moves[length++] = i;
-            }
-        }
-        return Arrays.copyOf(moves, length);
     }
 
 
